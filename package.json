@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "openai": "^3.1.0"
+  },
+  "name": "tunemoji",
+  "version": "1.0.0",
+  "description": "Game that tests your music knowledge using emojis",
+  "main": "/server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafael-domingo/tunemoji.git"
+  },
+  "author": "Rafael Domingo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafael-domingo/tunemoji/issues"
+  },
+  "homepage": "https://github.com/rafael-domingo/tunemoji#readme"
+}
