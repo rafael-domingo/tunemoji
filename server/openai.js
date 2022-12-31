@@ -14,7 +14,7 @@ router.get('/chatgpt', async (req, res) => {
     console.log('hello')
     const completion = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: "Convert movie titles into emoji.\n\nBack to the Future: 👨👴🚗🕒 \nBatman: 🤵🦇 \nTransformers: 🚗🤖 \Music for a sushi restaurant:",
+        prompt: "Convert movie titles into emoji.\n\nBack to the Future: 👨👴🚗🕒 \nBatman: 🤵🦇 \nTransformers: 🚗🤖 \nDancing in the kitchen:",
         temperature: 0.8,
         max_tokens: 60,
         top_p: 1.0,
