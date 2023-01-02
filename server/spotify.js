@@ -48,5 +48,42 @@ router.get('/callback', async (req, res) => {
     }
 })
 
+// get user playlists 'On Repeat' and 'Your 2022 Spotify Wrapped'
+router.post('/getPlaylists', async (req, res) => {
+    console.log(req.body);
+    const url = 'https://api.spotify.com/v1/search?' + new URLSearchParams([
+        ['query', req.body.playlistName],
+        ['type', 'playlist']
+    ]);
+    const headers = {
+        'Authorization': 'Bearer ' + req.body.access_token,
+        'Content-Type': 'application/json'
+    }
+
+    fetch(url, {
+        method: 'GET',
+        headers,      
+    })
+        .then(response => response.json())
+        .then(data => res.json(data))    
+    
+})
+
+// get tracks from a playlist given a playlistId
+router.post('/getTracks', async (req, res) => {
+    const url = `https://api.spotify.com/v1/playlists/${req.body.playlistId}/tracks`;
+     const headers = {
+        'Authorization': 'Bearer ' + req.body.access_token,
+        'Content-Type': 'application/json'
+    }
+
+    fetch(url, {
+        method: 'GET',
+        headers,      
+    })
+        .then(response => response.json())
+        .then(data => res.json(data))    
+})
+
 
 module.exports = router;

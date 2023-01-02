@@ -1,0 +1,64 @@
+.game-header {
+    height: 50%;
+    width: 60%;
+}
+
+.picker {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.playlist-container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 0.5s all ease;
+    cursor: pointer;
+    border-radius: 30px;
+    margin: 10px;
+    span {
+        width: 100%;
+    }
+    img {
+        width: 50%;
+        height: 50%;
+        box-shadow: 2px 3px 2px #0000006b;
+    }
+}
+
+.playlist-container:hover {
+    background-color: #7fbc9486;
+}
+
+.game-mode-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-mode-button {
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #FF9D33;
+    box-shadow: 2px 3px 2px #0000006b;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s all ease;              
+}
+
+.game-mode-button:hover {
+    box-shadow: none;
+}

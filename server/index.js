@@ -6,6 +6,11 @@ const path = require('path');
 const openai = require('./openai');
 const spotify = require('./spotify');
 
+// needed to parse body from fetch requests on front-end
+app.use(express.static("public"))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 app.use('/openai', openai);
 app.use('/spotify/', spotify);
 
