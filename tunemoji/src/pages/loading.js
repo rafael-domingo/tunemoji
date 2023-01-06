@@ -8,6 +8,7 @@ function Loading({ access_token, refresh_token, playlists, setPlaylists }) {
         handleGetPlaylist('On Repeat').then(playlist => {            
             handleGetPlaylistTracks(playlist.playlists.items[0].id)
                 .then(playlistTracks => {
+                    handleGetEmojis(playlistTracks.items[1].track.name)
                     const playlistObject = {
                         playlist: playlist.playlists.items[0],
                         playlistTracks: playlistTracks.items
@@ -20,6 +21,7 @@ function Loading({ access_token, refresh_token, playlists, setPlaylists }) {
         handleGetPlaylist('Your Top Songs 2022').then(playlist => {            
             handleGetPlaylistTracks(playlist.playlists.items[0].id)
                 .then(playlistTracks => {
+                    handleGetEmojis(playlistTracks.items[1].track.name)
                      const playlistObject = {
                         playlist: playlist.playlists.items[0],
                         playlistTracks: playlistTracks.items
@@ -33,7 +35,7 @@ function Loading({ access_token, refresh_token, playlists, setPlaylists }) {
 
     useEffect(() => {
         if (playlists.length === 2) {
-            navigate('/game')
+            navigate('/setup')
         }
     }, [playlists])
 
@@ -63,7 +65,13 @@ function Loading({ access_token, refresh_token, playlists, setPlaylists }) {
     }
 
     const handleGetEmojis = async (trackName) => {
-        
+        console.log('emojis')
+        return fetch('/openai/chatgpt', {
+            method: 'POST',
+            body: new URLSearchParams({
+                text: trackName
+            })
+        })
     }
 
     return (

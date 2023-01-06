@@ -10,11 +10,11 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-router.get('/chatgpt', async (req, res) => {
+router.post('/chatgpt', async (req, res) => {
     console.log('hello')
     const completion = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: "Convert movie titles into emoji.\n\nBack to the Future: 👨👴🚗🕒 \nBatman: 🤵🦇 \nTransformers: 🚗🤖 \nDancing in the kitchen:",
+        prompt: `Convert movie titles into emoji.\n\nBack to the Future: 👨👴🚗🕒 \nBatman: 🤵🦇 \nTransformers: 🚗🤖 \n${req.body.text}:`,
         temperature: 0.8,
         max_tokens: 60,
         top_p: 1.0,
@@ -23,6 +23,7 @@ router.get('/chatgpt', async (req, res) => {
         stop: ["\n"],
     });
     console.log(completion.data.choices[0].text);
+    res.json(completion.data.choices[0].text);
 })
 
 module.exports = router;
